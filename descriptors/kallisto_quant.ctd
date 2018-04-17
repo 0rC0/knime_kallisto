@@ -6,6 +6,7 @@
 	<manual><![CDATA[kallisto index -i]]></manual>
 	<docurl>Direct links in docs</docurl>
 	<cli>
+		<clielement optionIdentifier="index" isList="false" />
 		<clielement optionIdentifier="-i" isList="false">
 			<mapping referenceName="kallisto_index.output_file" />
 		</clielement>
