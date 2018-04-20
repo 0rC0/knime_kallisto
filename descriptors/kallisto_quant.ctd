@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tool name="KallistoIndex" version="0.0.1" category="Kallisto_Index"
+<tool name="KallistoQuant" version="0.0.1" category="Kallisto"
       docurl="https://pachterlab.github.io/kallisto/manual.html">
 	<executableName>kallisto</executableName>
-	<description><![CDATA[Kallisto Index]]></description>
-	<manual><![CDATA[kallisto index -i]]></manual>
+	<description><![CDATA[Kallisto Quant]]></description>
+	<manual><![CDATA[kallisto quant -i index_file -b bootstrap_samples input[1] input[2]]]></manual>
 	<docurl>Direct links in docs</docurl>
 	<cli>
-		<clielement optionIdentifier="index" isList="false" />
-		<clielement optionIdentifier="-i" isList="false">
-			<mapping referenceName="kallisto_index.output_file" />
-		</clielement>
+		<clielement optionIdentifier="quant" isList="false" />
 
 		<!-- Following clielements are arguments. You should consider
 		     providing a help text to ease understanding. -->
+   <clielement optionIdentifier="-b" isList="false">
+     <mapping referenceName="kallisto_quant.argument-0" />
+   </clielement>
+   <clielement optionIdentifier="-i" isList="false">
+     <mapping referenceName="kallisto_quant.argument-1" />
+   </clielement>
 		<clielement optionIdentifier="" isList="false">
-			<mapping referenceName="kallisto_index.argument-0" />
+			<mapping referenceName="kallisto_quant.argument-2" />
 		</clielement>
+    <clielement optionIdentifier="" isList="false">
+      <mapping referenceName="kallisto_quant.argument-3" />
+    </clielement>
 	</cli>
 	<PARAMETERS version="0.44"
 	            xsi:noNamespaceSchemaLocation="http://open-ms.sourceforge.net/schemas/Param_1_4.xsd"
 	            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<NODE name="kallisto_index" description="Kallisto Indexing">
-            <ITEM name="output_file" value="" type="output-file" description="Output IDX file." supported_formats="*.idx" />
-            <ITEM name="argument-0" value="" type="input-file" required="true" description="Input FastQ file."
+            <ITEM name="index_file" value="" type="index-file" description="Input IDX file." supported_formats="*.idx" />
+            <ITEM name="output_dir" value="" type="output_dir" description="Output_dir" supported_formats="*" />
+            <ITEM name="bs_sample" value="" type="bs_sample" description="BootStrap_Samples" supported_formats="*" />
+            <ITEM name="argument-0" value="" type="input-file-1" required="true" description="Input FastQ file 1"
+                  supported_formats="*.fq" />
+            <ITEM name="argument-1" value="" type="input-file-2" required="false" description="Input FastQ file 2"
                   supported_formats="*.fq" />
         </NODE>
     </PARAMETERS>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool name="KallistoIndex" version="0.0.1" category="Kallisto"
+      docurl="https://pachterlab.github.io/kallisto/manual.html">
+	<executableName>kallisto</executableName>
+	<description><![CDATA[Kallisto Index]]></description>
+	<manual><![CDATA[kallisto index -i]]></manual>
+	<docurl>Direct links in docs</docurl>
+	<cli>
+		<clielement optionIdentifier="index" isList="false" />
+		<clielement optionIdentifier="-i" isList="false">
+			<mapping referenceName="kallisto_index.output_file" />
+		</clielement>
+
+		<!-- Following clielements are arguments. You should consider
+		     providing a help text to ease understanding. -->
+		<clielement optionIdentifier="" isList="false">
+			<mapping referenceName="kallisto_index.argument-0" />
+		</clielement>
+	</cli>
+	<PARAMETERS version="0.44"
+	            xsi:noNamespaceSchemaLocation="http://open-ms.sourceforge.net/schemas/Param_1_4.xsd"
+	            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<NODE name="kallisto_index" description="Kallisto Indexing">
+            <ITEM name="output_file" value="" type="output-file" description="Output IDX file." supported_formats="*.idx" />
+            <ITEM name="argument-0" value="" type="input-file" required="true" description="Input FastQ file."
+                  supported_formats="*.fq" />
+        </NODE>
+    </PARAMETERS>
+</tool>
